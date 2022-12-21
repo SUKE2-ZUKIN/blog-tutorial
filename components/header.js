@@ -4,7 +4,7 @@ import Nav from "./nav";
 export default function() {
   return (
     <header>
-      <Logo />
+      <Logo boxOn />
       <Nav />
     </header>
   );
