@@ -1,4 +1,6 @@
+import Image from 'next/legacy/image';
 import styles from 'styles/hero.module.css'
+import hero from "images/logo512.png"
 
 export default function Hero({ title, subtitle, imageOn = false }) {
   return (
@@ -6,8 +8,19 @@ export default function Hero({ title, subtitle, imageOn = false }) {
       <div className={styles.text}>
         <h1 className={styles.title}>{title}</h1>
         <p className={styles.subtitle}>{subtitle}</p>
-        {imageOn && <figure>[画像]</figure>}
       </div>
+      {imageOn && (
+        <figure className={styles.image}>
+          <Image 
+            src={hero} 
+            alt="" 
+            layout="responsive"
+            sizes="(min-width: 1152px) 576px, (min-width: 768px) 50vw, 100vw"
+            priority
+            placeholder='blur'
+          />
+        </figure>
+      )}
     </div>
   );
 }
