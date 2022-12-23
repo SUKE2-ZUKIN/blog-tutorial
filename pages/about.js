@@ -3,6 +3,8 @@ import Container from "components/container";
 import Hero from "components/hero";
 import PostBody from "components/post-body";
 import { TwoColumn, TwoColumnMain, TwoColumnSidebar } from "components/two-column";
+import Image from "next/legacy/image";
+import eyecatch from 'images/about.jpg'
 
 function About() {
   return (
@@ -11,6 +13,16 @@ function About() {
         title={"About"}
         subtitle={"このサイトについて"}
       />
+
+      <figure>
+        <Image
+          src={eyecatch}
+          alt=""
+          layout="responsive"
+          sizes="(min-width: 1152px) 1152px, 100vw"
+          placeholder="blur"
+        />
+      </figure>
 
       <TwoColumn>
         <TwoColumnMain>
