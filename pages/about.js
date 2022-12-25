@@ -5,10 +5,16 @@ import PostBody from "components/post-body";
 import { TwoColumn, TwoColumnMain, TwoColumnSidebar } from "components/two-column";
 import Image from "next/legacy/image";
 import eyecatch from 'images/about.jpg'
+import Meta from "components/meta";
 
 function About() {
   return (
     <Container>
+      <Meta 
+        pageTitle="About"
+        pageDesc="このサイトについて"
+      />
+
       <Hero 
         title={"About"}
         subtitle={"このサイトについて"}
