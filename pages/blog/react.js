@@ -16,7 +16,7 @@ export default function Schedule({
 }
 
 export async function getStaticProps() {
-  const slug = "react"
+  const slug = "react-basic"
 
   const post = await getPostBySlug(slug)
   console.log(post);
