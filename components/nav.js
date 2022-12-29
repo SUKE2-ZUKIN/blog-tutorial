@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from 'styles/nav.module.css'
 
-export default function() {
+export default function Nav() {
   return (
     <nav>
       <ul className={styles.list}>
