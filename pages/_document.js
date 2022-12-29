@@ -3,7 +3,7 @@ import { Head, Html, Main, NextScript } from "next/document";
 
 const { siteLang } = siteMeta
 
-export default function() {
+export default function _Document() {
   return (
     <Html>
       <Head />
