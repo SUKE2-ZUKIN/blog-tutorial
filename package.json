@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write '**/**/*.js'"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "eslint": "8.30.0",
-    "eslint-config-next": "13.0.7"
+    "eslint-config-next": "13.0.7",
+    "prettier": "^2.8.1"
   }
 }

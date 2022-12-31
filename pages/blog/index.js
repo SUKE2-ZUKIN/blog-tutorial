@@ -9,35 +9,29 @@ import { getPlaiceholder } from "plaiceholder";
 export default function Blog({ posts }) {
   return (
     <Container>
-      <Meta 
-        pageTitle="Blog"
-        pageDesc="最近の投稿"
-      />
+      <Meta pageTitle="Blog" pageDesc="最近の投稿" />
 
-      <Hero
-        title={"Blog"}
-        subtitle={"最近の投稿"}
-      />
+      <Hero title={"Blog"} subtitle={"最近の投稿"} />
 
       <Posts posts={posts} />
     </Container>
-  )
+  );
 }
 
 export async function getStaticProps() {
-  const posts = await getAllPosts(4)
+  const posts = await getAllPosts(4);
 
   for (const post of posts) {
-    if (!post.hasOwnProperty('eyecatch')) {
-      post.eyecatch = eyecatchLocal
+    if (!post.hasOwnProperty("eyecatch")) {
+      post.eyecatch = eyecatchLocal;
     }
-    const { base64 } = await getPlaiceholder(post.eyecatch.url)
-    post.eyecatch.blurDataURL = base64
+    const { base64 } = await getPlaiceholder(post.eyecatch.url);
+    post.eyecatch.blurDataURL = base64;
   }
 
   return {
     props: {
       posts: posts,
-    }
-  }
+    },
+  };
 }

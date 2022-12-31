@@ -1,17 +1,17 @@
 import Link from "next/link";
 import { useState } from "react";
-import styles from 'styles/nav.module.css'
+import styles from "styles/nav.module.css";
 
 export default function Nav() {
-  const [navIsOpen, setNavIsOpen] = useState(false)
+  const [navIsOpen, setNavIsOpen] = useState(false);
 
   const toggleNav = () => {
-    setNavIsOpen((prev) => !prev)
-  }
+    setNavIsOpen((prev) => !prev);
+  };
 
   const closeNav = () => {
-    setNavIsOpen(false)
-  }
+    setNavIsOpen(false);
+  };
 
   return (
     <nav className={navIsOpen ? styles.open : styles.close}>
