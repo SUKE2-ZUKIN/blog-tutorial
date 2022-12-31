@@ -5,7 +5,7 @@ export default function ConvertBody({ contentHTML }) {
   const contentReact = parse(contentHTML, {
     replace: (node) => {
       if (node.name === "img") {
-        const { src, alt, width, height } = node.attribs
+        const { src, alt, width, height } = node.attribs;
         return (
           <Image
             layout="responsive"
@@ -15,9 +15,9 @@ export default function ConvertBody({ contentHTML }) {
             alt={alt}
             sizes="(min-width: 768px) 768px, 100vw"
           />
-        )
+        );
       }
-    }
-  })
-  return <>{contentReact}</>
+    },
+  });
+  return <>{contentReact}</>;
 }

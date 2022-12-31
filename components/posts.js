@@ -1,11 +1,11 @@
 import Image from "next/legacy/image";
 import Link from "next/link";
-import styles from 'styles/posts.module.css';
+import styles from "styles/posts.module.css";
 
 export default function Posts({ posts }) {
   return (
     <div className={styles.gridContainer}>
-      {posts.map(({title, slug, eyecatch }) => (
+      {posts.map(({ title, slug, eyecatch }) => (
         <article className={styles.post} key={slug}>
           <Link href={`/blog/${slug}`}>
             <figure>

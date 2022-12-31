@@ -1,13 +1,16 @@
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import styles from "styles/pagination.module.css"
+import styles from "styles/pagination.module.css";
 
 export default function Pagination({
-  prevText = '',
-  prevUrl = '',
-  nextText = '',
-  nextUrl = '',
+  prevText = "",
+  prevUrl = "",
+  nextText = "",
+  nextUrl = "",
 }) {
   return (
     <ul className={styles.flexContainer}>

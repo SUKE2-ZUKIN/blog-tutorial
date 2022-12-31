@@ -2,23 +2,21 @@ import Contact from "components/contact";
 import Container from "components/container";
 import Hero from "components/hero";
 import PostBody from "components/post-body";
-import { TwoColumn, TwoColumnMain, TwoColumnSidebar } from "components/two-column";
+import {
+  TwoColumn,
+  TwoColumnMain,
+  TwoColumnSidebar,
+} from "components/two-column";
 import Image from "next/legacy/image";
-import eyecatch from 'images/about.jpg'
+import eyecatch from "images/about.jpg";
 import Meta from "components/meta";
 
 function About() {
   return (
     <Container>
-      <Meta 
-        pageTitle="About"
-        pageDesc="このサイトについて"
-      />
+      <Meta pageTitle="About" pageDesc="このサイトについて" />
 
-      <Hero 
-        title={"About"}
-        subtitle={"このサイトについて"}
-      />
+      <Hero title={"About"} subtitle={"このサイトについて"} />
 
       <figure>
         <Image
@@ -33,21 +31,21 @@ function About() {
       <TwoColumn>
         <TwoColumnMain>
           <PostBody>
-          <p>
-            文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。
-          </p>
-          <h2>このサイトで意識していること</h2>
-          <p>
-            文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。
-          </p>
-          <p>
-            文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。
-          </p>
-          <h3>新たに挑戦したいこと</h3>
-          <p>
-            文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。
-          </p>
-        </PostBody>
+            <p>
+              文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。
+            </p>
+            <h2>このサイトで意識していること</h2>
+            <p>
+              文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。
+            </p>
+            <p>
+              文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。
+            </p>
+            <h3>新たに挑戦したいこと</h3>
+            <p>
+              文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。文章が入ります。
+            </p>
+          </PostBody>
         </TwoColumnMain>
 
         <TwoColumnSidebar>
@@ -55,7 +53,7 @@ function About() {
         </TwoColumnSidebar>
       </TwoColumn>
     </Container>
-  )
+  );
 }
 
 export default About;
