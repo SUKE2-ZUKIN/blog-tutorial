@@ -1,3 +1,4 @@
+import { GetStaticProps } from 'next';
 import Container from "components/container";
 import Hero from "components/hero";
 import Meta from "components/meta";
@@ -18,7 +19,7 @@ export default function Blog({ posts }) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllPosts(4);
 
   for (const post of posts) {
