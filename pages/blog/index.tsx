@@ -6,8 +6,13 @@ import Posts from "components/posts";
 import { getAllPosts } from "lib/api";
 import { eyecatchLocal } from "lib/constants";
 import { getPlaiceholder } from "plaiceholder";
+import { Post } from 'interfaces';
 
-export default function Blog({ posts }) {
+type Props = {
+  posts: Post[]
+}
+
+export default function Blog({ posts }: Props) {
   return (
     <Container>
       <Meta pageTitle="Blog" pageDesc="最近の投稿" />

@@ -2,7 +2,13 @@ import Image from "next/legacy/image";
 import styles from "styles/hero.module.css";
 import hero from "images/logo512.png";
 
-export default function Hero({ title, subtitle, imageOn = false }) {
+type Props = {
+  title: string
+  subtitle: string
+  imageOn?: boolean
+}
+
+export default function Hero({ title, subtitle, imageOn = false }: Props) {
   return (
     <div className={styles.flexContainer}>
       <div className={styles.text}>
