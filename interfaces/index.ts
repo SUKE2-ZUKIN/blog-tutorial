@@ -4,13 +4,39 @@
 //
 // import { User } from 'path/to/interfaces';
 
-export type Post = {
+import { ReactNode } from "react"
+
+export type PostType = {
   title: string
+  publish: string
   slug: string
   eyecatch: Eyecatch
+  content?: string
+  categories?: Category[]
+  description?: string
+  prevPost: {
+    title: string
+    slug: string
+  }
+  nextPost: {
+    title: string
+    slug: string
+  }
 }
 
 type Eyecatch = {
   url: string
   blurDataURL: string
+  width: number
+  height: number
+}
+
+export type Category = {
+  id: string
+  name: string
+  slug: string
+}
+
+export type ReactNodeChildren = {
+  children: ReactNode
 }

@@ -6,12 +6,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import styles from "styles/pagination.module.css";
 
+type Pagination = {
+  prevText: string
+  prevUrl: string
+  nextText: string
+  nextUrl: string
+}
+
 export default function Pagination({
   prevText = "",
   prevUrl = "",
   nextText = "",
   nextUrl = "",
-}) {
+}: Pagination) {
   return (
     <ul className={styles.flexContainer}>
       {prevText && prevUrl && (

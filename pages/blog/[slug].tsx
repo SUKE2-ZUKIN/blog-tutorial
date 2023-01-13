@@ -18,6 +18,13 @@ import { eyecatchLocal } from "lib/constants";
 import { getPlaiceholder } from "plaiceholder";
 import prevNextPost from "lib/prev-next-post";
 import Pagination from "components/pagination";
+import { PostType } from "interfaces";
+import { GetStaticProps } from "next";
+import { NextParsedUrlQuery } from "next/dist/server/request-meta";
+
+interface Params extends NextParsedUrlQuery {
+  slug: string;
+}
 
 export default function Post({
   title,
@@ -28,15 +35,15 @@ export default function Post({
   description,
   prevPost,
   nextPost,
-}) {
+}: PostType) {
   return (
     <Container>
       <Meta
         pageTitle={title}
         pageDesc={description}
         pageImg={eyecatch.url}
-        pageImgW={eyecatch.width}
-        pageImgH={eyecatch.height}
+        pageImgW={`${eyecatch.width}`}
+        pageImgH={`${eyecatch.height}`}
       />
 
       <article>
@@ -60,11 +67,11 @@ export default function Post({
         <TwoColumn>
           <TwoColumnMain>
             <PostBody>
-              <ConvertBody contentHTML={content} />
+              <ConvertBody contentHTML={content || ''}/>
             </PostBody>
           </TwoColumnMain>
           <TwoColumnSidebar>
-            <PostCategories categories={categories} />
+            <PostCategories categories={categories || [{id: "", name: "", slug: ""}]} />
           </TwoColumnSidebar>
         </TwoColumn>
 
@@ -83,14 +90,16 @@ export async function getStaticPaths() {
   const allSlugs = await getAllSlugs();
 
   return {
-    paths: allSlugs.map(({ slug }) => `/blog/${slug}`),
+    paths: allSlugs.map(({ slug }: {slug: string}) => `/blog/${slug}`),
     fallback: false,
   };
 }
 
-export async function getStaticProps(context) {
-  const slug = context.params.slug;
-
+export const getStaticProps: GetStaticProps = async (context) => {
+  const slug = context.params as Params;
+  console.log(context.params);
+  console.log(slug);
+  
   const post = await getPostBySlug(slug);
 
   const description = extractText(post.content);
@@ -101,7 +110,7 @@ export async function getStaticProps(context) {
   eyecatch.blurDataURL = base64;
 
   const allSlugs = await getAllSlugs();
-  const [prevPost, nextPost] = prevNextPost(allSlugs, slug);
+  const [prevPost, nextPost] = prevNextPost(allSlugs, slug.slug);
 
   return {
     props: {
