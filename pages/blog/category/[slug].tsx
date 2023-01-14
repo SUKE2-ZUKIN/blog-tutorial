@@ -2,18 +2,18 @@ import Container from "components/container";
 import Meta from "components/meta";
 import PostHeader from "components/post-header";
 import Posts from "components/posts";
-import { Category, PostType } from "interfaces";
+import { CategoryType, PostType } from "interfaces";
 import { getAllCategories, getAllPostsByCategory } from "lib/api";
 import { eyecatchLocal } from "lib/constants";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { getPlaiceholder } from "plaiceholder";
 
-type CategoryType = {
+type Props = {
   name: string
   posts: PostType[]
 }
 
-export default function Category({ name, posts }: CategoryType) {
+export default function Category({ name, posts }: Props) {
   return (
     <Container>
       <Meta pageTitle={name} pageDesc={`${name}に関する記事`} />
@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const allCats = await getAllCategories();
 
-  const cat: Category = allCats.find(({ slug }: {slug: string}) => slug === catSlug);
+  const cat: CategoryType = allCats.find(({ slug }: {slug: string}) => slug === catSlug);
 
   const posts = await getAllPostsByCategory(cat.id);
 

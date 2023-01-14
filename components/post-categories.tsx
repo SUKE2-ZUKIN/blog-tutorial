@@ -2,9 +2,9 @@ import { faFolderOpen } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import styles from "styles/post-categories.module.css";
-import { Category } from "interfaces/index";
+import { CategoryType } from "interfaces/index";
 
-export default function PostCategories({ categories }: {categories: Category[]}) {
+export default function PostCategories({ categories }: {categories: CategoryType[]}) {
   return (
     <div className={styles.flexContainer}>
       <h3 className={styles.heading}>

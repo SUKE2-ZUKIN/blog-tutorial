@@ -12,7 +12,7 @@ export type PostType = {
   slug: string
   eyecatch: Eyecatch
   content?: string
-  categories?: Category[]
+  categories?: CategoryType[]
   description?: string
   prevPost: {
     title: string
@@ -31,7 +31,7 @@ type Eyecatch = {
   height: number
 }
 
-export type Category = {
+export type CategoryType = {
   id: string
   name: string
   slug: string
