@@ -6,10 +6,10 @@ import Posts from "components/posts";
 import { getAllPosts } from "lib/api";
 import { eyecatchLocal } from "lib/constants";
 import { getPlaiceholder } from "plaiceholder";
-import { Post } from 'interfaces';
+import { PostType } from 'interfaces';
 
 type Props = {
-  posts: Post[]
+  posts: PostType[]
 }
 
 export default function Blog({ posts }: Props) {
