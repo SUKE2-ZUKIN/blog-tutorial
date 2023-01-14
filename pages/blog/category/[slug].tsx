@@ -26,7 +26,7 @@ export default function Category({ name, posts }: CategoryType) {
 export const getStaticPaths: GetStaticPaths = async () => {
   const allCats = await getAllCategories();
   return {
-    paths: allCats.map(({ slug }) => `/blog/category/${slug}`),
+    paths: allCats.map(({ slug }: {slug: string}) => `/blog/category/${slug}`),
     fallback: false,
   };
 }
@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const allCats = await getAllCategories();
 
-  const cat: Category = allCats.find(({ slug }) => slug === catSlug);
+  const cat: Category = allCats.find(({ slug }: {slug: string}) => slug === catSlug);
 
   const posts = await getAllPostsByCategory(cat.id);
 
