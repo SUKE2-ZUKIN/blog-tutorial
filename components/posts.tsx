@@ -1,8 +1,13 @@
+import { PostType } from "interfaces";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import styles from "styles/posts.module.css";
 
-export default function Posts({ posts }) {
+type Posts = {
+  posts: PostType[]
+}
+
+export default function Posts({ posts }: Posts) {
   return (
     <div className={styles.gridContainer}>
       {posts.map(({ title, slug, eyecatch }) => (

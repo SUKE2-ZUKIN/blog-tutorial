@@ -1,4 +1,9 @@
-export default function prevNextPost(allSlugs, currentSlug) {
+type allSlugs = {
+  title: string
+  slug: string
+}[]
+
+export default function prevNextPost(allSlugs: allSlugs, currentSlug: string) {
   const numberOfPosts = allSlugs.length;
 
   const index = allSlugs.findIndex(({ slug }) => slug === currentSlug);

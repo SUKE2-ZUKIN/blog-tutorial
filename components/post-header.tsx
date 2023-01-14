@@ -3,7 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "styles/post-header.module.css";
 import ConvertDate from "./convert-date";
 
-export default function PostHeader({ title, subtitle, publish = "" }) {
+type Params = {
+  title: string
+  subtitle: string
+  publish?: string
+}
+
+export default function PostHeader({ title, subtitle, publish = "" }: Params) {
   return (
     <div className={styles.stack}>
       <p className={styles.subtitle}>{subtitle}</p>

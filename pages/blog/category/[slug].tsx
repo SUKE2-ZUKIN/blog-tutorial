@@ -2,11 +2,18 @@ import Container from "components/container";
 import Meta from "components/meta";
 import PostHeader from "components/post-header";
 import Posts from "components/posts";
+import { CategoryType, PostType } from "interfaces";
 import { getAllCategories, getAllPostsByCategory } from "lib/api";
 import { eyecatchLocal } from "lib/constants";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { getPlaiceholder } from "plaiceholder";
 
-export default function Category({ name, posts }) {
+type Props = {
+  name: string
+  posts: PostType[]
+}
+
+export default function Category({ name, posts }: Props) {
   return (
     <Container>
       <Meta pageTitle={name} pageDesc={`${name}に関する記事`} />
@@ -16,20 +23,20 @@ export default function Category({ name, posts }) {
   );
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const allCats = await getAllCategories();
   return {
-    paths: allCats.map(({ slug }) => `/blog/category/${slug}`),
+    paths: allCats.map(({ slug }: {slug: string}) => `/blog/category/${slug}`),
     fallback: false,
   };
 }
 
-export async function getStaticProps(context) {
-  const catSlug = context.params.slug;
+export const getStaticProps: GetStaticProps = async (context) => {
+  const catSlug = context.params?.slug ;
 
   const allCats = await getAllCategories();
 
-  const cat = allCats.find(({ slug }) => slug === catSlug);
+  const cat: CategoryType = allCats.find(({ slug }: {slug: string}) => slug === catSlug);
 
   const posts = await getAllPostsByCategory(cat.id);
 

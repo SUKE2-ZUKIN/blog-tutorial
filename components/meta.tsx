@@ -7,13 +7,21 @@ const { siteTitle, siteDesc, siteUrl, siteLocale, siteType, siteIcon } =
 
 import siteImg from "images/next.png";
 
+type Props = {
+  pageTitle?: string;
+  pageDesc?: string;
+  pageImg?: string;
+  pageImgW?: string;
+  pageImgH?: string;
+}
+
 export default function Meta({
   pageTitle,
   pageDesc,
   pageImg,
   pageImgW,
   pageImgH,
-}) {
+}: Props) {
   // タイトル
   const title = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle;
 
@@ -40,8 +48,8 @@ export default function Meta({
       <meta property="og:url" content={url} />
 
       <meta property="og:image" content={imgUrl} />
-      <meta property="og:image:width" content={imgW} />
-      <meta property="og:image:height" content={imgH} />
+      <meta property="og:image:width" content={`${imgW}`} />
+      <meta property="og:image:height" content={`${imgH}`} />
       <meta name="twitter:card" content="summary_large_image" />
     </Head>
   );

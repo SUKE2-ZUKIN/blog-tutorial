@@ -1,3 +1,4 @@
+import { GetStaticProps } from 'next';
 import Container from "components/container";
 import Hero from "components/hero";
 import Meta from "components/meta";
@@ -5,8 +6,13 @@ import Posts from "components/posts";
 import { getAllPosts } from "lib/api";
 import { eyecatchLocal } from "lib/constants";
 import { getPlaiceholder } from "plaiceholder";
+import { PostType } from 'interfaces';
 
-export default function Blog({ posts }) {
+type Props = {
+  posts: PostType[]
+}
+
+export default function Blog({ posts }: Props) {
   return (
     <Container>
       <Meta pageTitle="Blog" pageDesc="最近の投稿" />
@@ -18,7 +24,7 @@ export default function Blog({ posts }) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllPosts(4);
 
   for (const post of posts) {

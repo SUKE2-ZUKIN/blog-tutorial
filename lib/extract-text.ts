@@ -1,6 +1,12 @@
 import { convert } from "html-to-text";
 
-export function extractText(html, length = 80, more = "...") {
+type Params = {
+  html: string
+  length: number
+  more: string
+}
+
+export function extractText({html, length = 80, more = "..."}: Params) {
   const text = convert(html, {
     selectors: [
       { selector: "img", format: "skip" },

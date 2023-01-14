@@ -1,12 +1,12 @@
 import { createClient } from "microcms-js-sdk";
 
 export const client = createClient({
-  serviceDomain: process.env.SERVICE_DOMAIN,
-  apiKey: process.env.API_KEY,
+  serviceDomain: process.env.SERVICE_DOMAIN || '',
+  apiKey: process.env.API_KEY || '',
 });
 
 // スラッグから記事の内容を取得するメソッド
-export async function getPostBySlug(slug) {
+export async function getPostBySlug({slug}: {slug: string}) {
   try {
     const post = await client.get({
       endpoint: "blogs",
@@ -73,7 +73,7 @@ export async function getAllCategories(limit = 100) {
 }
 
 // カテゴリー内の全ての記事を取得するメソッド
-export async function getAllPostsByCategory(catID, limit = 100) {
+export async function getAllPostsByCategory(catID: string, limit = 100) {
   try {
     const posts = await client.get({
       endpoint: "blogs",
