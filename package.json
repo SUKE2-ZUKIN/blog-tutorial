@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write '**/**/*.js'"
+    "format": "prettier --write '**/**/*.js'",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
@@ -26,11 +28,22 @@
     "sharp": "^0.31.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-essentials": "^6.5.15",
+    "@storybook/addon-interactions": "^6.5.15",
+    "@storybook/addon-links": "^6.5.15",
+    "@storybook/builder-webpack5": "^6.5.15",
+    "@storybook/manager-webpack5": "^6.5.15",
+    "@storybook/react": "^6.5.15",
+    "@storybook/testing-library": "^0.0.13",
     "@types/html-to-text": "^9.0.0",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.26",
+    "babel-loader": "^8.3.0",
     "eslint": "8.30.0",
     "eslint-config-next": "13.0.7",
+    "eslint-plugin-storybook": "^0.6.10",
     "prettier": "^2.8.1",
     "typescript": "^4.9.4"
   }
