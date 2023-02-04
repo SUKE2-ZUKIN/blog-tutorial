@@ -1,6 +1,7 @@
 import Container from "components/container";
 import Hero from "components/hero";
 import Meta from "components/meta";
+import Description from "components/description";
 
 export default function Home() {
   return (
@@ -9,9 +10,11 @@ export default function Home() {
 
       <Hero
         title={"React Blog"}
-        subtitle={"Next.js / Reactについてアウトプットしていきます。"}
+        subtitle={"Next.jsを使用したブログサイトです。"}
         imageOn
       />
+
+      <Description />
     </Container>
   );
 }
