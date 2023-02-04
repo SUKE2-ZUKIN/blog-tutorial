@@ -1,6 +1,6 @@
 .basic {
   font-size: var(--heading2);
-  font-weight: 700;
+  font-weight: 650;
   letter-spacing: 0.15rem;
 }
 
@@ -8,6 +8,8 @@
   composes: basic;
   display: inline-block;
   padding: 1em 2em;
+  -webkit-box-shadow: 8px 8px 0 #007032;
+  box-shadow: 8px 8px 0 #007032;
   background-color: var(--gray-75);
   color: var(--white);
   font-size: var(--small-heading2);

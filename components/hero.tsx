@@ -12,7 +12,7 @@ export default function Hero({ title, subtitle, imageOn = false }: Props) {
   return (
     <div className={styles.flexContainer}>
       <div className={styles.text}>
-        <h1 className={styles.title}>{title}</h1>
+        <h2 className={styles.title}>{title}</h2>
         <p className={styles.subtitle}>{subtitle}</p>
       </div>
       {imageOn && (
